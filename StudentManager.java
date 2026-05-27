@@ -32,4 +32,17 @@ public class StudentManager {
             System.out.println("Student Not Found!");
         }
     }
+
+
+    // Delete Student
+    public void deleteStudent(int id) {
+
+        boolean removed = students.removeIf(s -> s.id == id);
+
+        if (removed) {
+            System.out.println("Student Deleted Successfully!");
+        } else {
+            System.out.println("Student Not Found!");
+        }
+    }
 }
