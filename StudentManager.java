@@ -15,7 +15,7 @@ public class StudentManager {
         }
     }
 
-    // Search Student
+   // Search Student
     public void searchStudent(int id) {
 
         boolean found = false;
@@ -32,5 +32,4 @@ public class StudentManager {
             System.out.println("Student Not Found!");
         }
     }
-
 }
