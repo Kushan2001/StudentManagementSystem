@@ -47,7 +47,7 @@ public class StudentManager {
     }
 
     // Update Student
-    public void updateStudent(int id, String newName, String newCourse) {
+    public void updateStudent(int id, String newName, String newCourse,int newAge,String newEmail,int newPhoneNo) {
 
         boolean found = false;
 
@@ -57,6 +57,9 @@ public class StudentManager {
 
                 s.name = newName;
                 s.course = newCourse;
+                s.age = newAge;
+                s.email =newEmail;
+                s.phoneNo = newPhoneNo;
 
                 System.out.println("Student Updated Successfully!");
 
