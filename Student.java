@@ -11,6 +11,7 @@ public class Student {
     }
 
     public void display(){
+        System.out.println("----------------------");
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);
         System.out.println("Course: " + course);
