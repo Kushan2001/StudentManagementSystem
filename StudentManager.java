@@ -45,4 +45,27 @@ public class StudentManager {
             System.out.println("Student Not Found!");
         }
     }
+
+    // Update Student
+    public void updateStudent(int id, String newName, String newCourse) {
+
+        boolean found = false;
+
+        for (Student s : students) {
+
+            if (s.id == id) {
+
+                s.name = newName;
+                s.course = newCourse;
+
+                System.out.println("Student Updated Successfully!");
+
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Student Not Found!");
+        }
+    }
 }
