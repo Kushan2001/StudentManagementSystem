@@ -24,6 +24,6 @@ public class Student {
         System.out.println("Course: " + course);
         System.out.println("Age: " + age);
         System.out.println("Email: " + email);
-        System.out.println("Phone Number: " + course);
+        System.out.println("Phone Number: " + phoneNo);
     }
 }
