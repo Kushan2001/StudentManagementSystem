@@ -10,6 +10,10 @@ public class StudentManager {
     }
 
     public void viewStudents(){
+        if (students.isEmpty()) {
+            System.out.println("No students found.");
+            return;
+        }
         for(Student s : students){
             s.display();
         }

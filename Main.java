@@ -37,8 +37,10 @@ public class Main {
                     System.out.print("Enter Age: ");
                     int age = input.nextInt();
 
+                    input.nextLine();
+
                     System.out.print("Enter Email: ");
-                    String email= input.nextLine();
+                    String email = input.nextLine();
 
                     System.out.print("Enter Phone Number: ");
                     int phoneNo = input.nextInt();
