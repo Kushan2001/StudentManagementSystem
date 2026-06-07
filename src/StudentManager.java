@@ -1,5 +1,7 @@
 package src;
 import java.util.ArrayList;
+import java.sql.Connection;
+import.java.sql.PreparedStatement;
 
 public class StudentManager {
     
