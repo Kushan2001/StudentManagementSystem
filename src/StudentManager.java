@@ -7,7 +7,7 @@ public class StudentManager {
     
     ArrayList<Student> students = new ArrayList<>();
 
-    public void addStudent(Student student){
+    public void addStudentToDB(Student student){
         students.add(student);
         System.out.println("Student Added Successfully!");
     }
