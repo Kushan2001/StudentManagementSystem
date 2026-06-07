@@ -48,7 +48,7 @@ public class Main {
 
                     Student student = new Student(id, name, course,age,email,phoneNo);
 
-                    manager.addStudent(student);
+                    manager.addStudentToDB(student);
                     break;
                 case 2:
                     manager.viewStudents();
