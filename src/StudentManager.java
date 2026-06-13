@@ -80,15 +80,28 @@ public class StudentManager {
     }
 
     // Delete Student
-    public void deleteStudent(int id) {
+    public void deleteStudentFromDB(int id) {
+        try {
+            Connection con = DBConnection.getConnection();
 
-        boolean removed = students.removeIf(s -> s.id == id);
+            String sql = "DELETE FROM students WHERE id=?";
 
-        if (removed) {
-            System.out.println("Student Deleted Successfully!");
-        } else {
-            System.out.println("Student Not Found!");
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setInt(1, id);
+
+            int rows = pst.executeUpdate();
+
+            if (rows > 0) {
+                System.out.println("Student  deleted successfully..!");
+            }else{
+                System.out.println("Student not found..!");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        
     }
 
     // Update Student
