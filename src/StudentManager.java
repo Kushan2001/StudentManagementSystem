@@ -2,14 +2,35 @@ package src;
 import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class StudentManager {
     
     ArrayList<Student> students = new ArrayList<>();
 
     public void addStudentToDB(Student student){
-        students.add(student);
-        System.out.println("Student Added Successfully!");
+        Connection con = DBConnection.getConnection();
+        try {
+            
+            String sql = 
+                "INSERT INTO students (id, name, course, age ,email, phoneNo) VALUES (?,?,?,?,?,?)";
+
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setInt(1, student.id);
+            pst.setString(2, student.name);
+            pst.setString(3, student.course);
+            pst.setInt(4, student.age);
+            pst.setString(5, student.email);
+            pst.setString(6, student.phoneNo);
+
+            pst.executeUpdate();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void viewStudents(){

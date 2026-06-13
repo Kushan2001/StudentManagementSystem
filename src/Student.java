@@ -5,11 +5,11 @@ public class Student {
     String course;
     int age;
     String email;
-    int phoneNo;
+    String phoneNo;
 
 
 
-    public Student(int id, String name, String course,int age,String email,int phoneNo){
+    public Student(int id, String name, String course,int age,String email,String phoneNo){
         this.id = id;
         this.name = name;
         this.course = course;
