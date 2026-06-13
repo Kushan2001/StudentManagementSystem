@@ -44,7 +44,7 @@ public class Main {
                     String email = input.nextLine();
 
                     System.out.print("Enter Phone Number: ");
-                    int phoneNo = input.nextInt();
+                    String phoneNo = input.nextLine();
 
                     Student student = new Student(id, name, course,age,email,phoneNo);
 

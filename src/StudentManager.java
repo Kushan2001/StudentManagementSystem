@@ -1,5 +1,8 @@
 package src;
 import java.util.ArrayList;
+
+import javax.naming.spi.DirStateFactory.Result;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,13 +36,29 @@ public class StudentManager {
         }
     }
 
-    public void viewStudents(){
-        if (students.isEmpty()) {
-            System.out.println("No students found.");
-            return;
-        }
-        for(Student s : students){
-            s.display();
+    public void viewStudentsDB(){
+        try {
+        Connection con = DBConnection.getConnection();
+
+         String sql = "SELECT * FROM students";
+
+         Statement st = con.createStatement();
+
+         ResultSet rs = st.executeQuery(sql);
+
+         while (rs.next()) {
+            
+            System.out.println("...............................");
+            System.out.println("ID: " + rs.getInt("id"));
+            System.out.println("Name: " + rs.getString("name"));
+            System.out.println("Course: " + rs.getString("course"));
+            System.out.println("Age: " + rs.getInt("age"));
+            System.out.println("Email: " + rs.getString("email"));
+            System.out.println("Phone: " + rs.getString("PhoneNo"));
+         }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
