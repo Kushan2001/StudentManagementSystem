@@ -2,7 +2,7 @@ package src;
 
 import java.util.ArrayList;
 
-import javax.naming.spi.DirStateFactory.Result;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,7 +17,7 @@ public class StudentManager {
         Connection con = DBConnection.getConnection();
         try {
 
-            String sql = "INSERT INTO students (id, name, course, age ,email, phoneNo) VALUES (?,?,?,?,?,?)";
+            String sql = "INSERT INTO students (id, name, course, age, email, phone_number) VALUES (?,?,?,?,?,?)";
 
             PreparedStatement pst = con.prepareStatement(sql);
 
@@ -53,7 +53,7 @@ public class StudentManager {
                 System.out.println("Course: " + rs.getString("course"));
                 System.out.println("Age: " + rs.getInt("age"));
                 System.out.println("Email: " + rs.getString("email"));
-                System.out.println("Phone: " + rs.getString("PhoneNo"));
+                System.out.println("Phone: " + rs.getString("phone_number"));
             }
 
         } catch (Exception e) {
@@ -110,7 +110,7 @@ public class StudentManager {
         try {
             Connection con = DBConnection.getConnection();
 
-            String sql = "UPDATE students SET name=?, course=?,age =?,email=?, phoneNo=? WHERE id=?";
+            String sql = "UPDATE students SET name=?, course=?, age=?, email=?, phone_number=? WHERE id=?";
 
             PreparedStatement pst = con.prepareStatement(sql);
 
@@ -119,7 +119,7 @@ public class StudentManager {
             pst.setInt(3, age);
             pst.setString(4, email);
             pst.setString(5, phoneNo);
-            pst.setInt(3, id);
+            pst.setInt(6, id);
 
             int rows = pst.executeUpdate();
 
