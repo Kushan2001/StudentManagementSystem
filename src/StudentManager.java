@@ -1,4 +1,5 @@
 package src;
+
 import java.util.ArrayList;
 
 import javax.naming.spi.DirStateFactory.Result;
@@ -9,15 +10,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class StudentManager {
-    
+
     ArrayList<Student> students = new ArrayList<>();
 
-    public void addStudentToDB(Student student){
+    public void addStudentToDB(Student student) {
         Connection con = DBConnection.getConnection();
         try {
-            
-            String sql = 
-                "INSERT INTO students (id, name, course, age ,email, phoneNo) VALUES (?,?,?,?,?,?)";
+
+            String sql = "INSERT INTO students (id, name, course, age ,email, phoneNo) VALUES (?,?,?,?,?,?)";
 
             PreparedStatement pst = con.prepareStatement(sql);
 
@@ -30,39 +30,38 @@ public class StudentManager {
 
             pst.executeUpdate();
 
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void viewStudentsDB(){
+    public void viewStudentsDB() {
         try {
-        Connection con = DBConnection.getConnection();
+            Connection con = DBConnection.getConnection();
 
-         String sql = "SELECT * FROM students";
+            String sql = "SELECT * FROM students";
 
-         Statement st = con.createStatement();
+            Statement st = con.createStatement();
 
-         ResultSet rs = st.executeQuery(sql);
+            ResultSet rs = st.executeQuery(sql);
 
-         while (rs.next()) {
-            
-            System.out.println("...............................");
-            System.out.println("ID: " + rs.getInt("id"));
-            System.out.println("Name: " + rs.getString("name"));
-            System.out.println("Course: " + rs.getString("course"));
-            System.out.println("Age: " + rs.getInt("age"));
-            System.out.println("Email: " + rs.getString("email"));
-            System.out.println("Phone: " + rs.getString("PhoneNo"));
-         }
+            while (rs.next()) {
+
+                System.out.println("...............................");
+                System.out.println("ID: " + rs.getInt("id"));
+                System.out.println("Name: " + rs.getString("name"));
+                System.out.println("Course: " + rs.getString("course"));
+                System.out.println("Age: " + rs.getInt("age"));
+                System.out.println("Email: " + rs.getString("email"));
+                System.out.println("Phone: " + rs.getString("PhoneNo"));
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-   // Search Student
+    // Search Student
     public void searchStudent(int id) {
 
         boolean found = false;
@@ -80,7 +79,6 @@ public class StudentManager {
         }
     }
 
-
     // Delete Student
     public void deleteStudent(int id) {
 
@@ -94,28 +92,32 @@ public class StudentManager {
     }
 
     // Update Student
-    public void updateStudent(int id, String newName, String newCourse,int newAge,String newEmail,int newPhoneNo) {
+    public void updateStudentInDB(int id, String name, String course, int age, String email, String phoneNo) {
 
-        boolean found = false;
+        try {
+            Connection con = DBConnection.getConnection();
 
-        for (Student s : students) {
+            String sql = "UPDATE students SET name=?, course=?,age =?,email=?, phoneNo=? WHERE id=?";
 
-            if (s.id == id) {
+            PreparedStatement pst = con.prepareStatement(sql);
 
-                s.name = newName;
-                s.course = newCourse;
-                s.age = newAge;
-                s.email =newEmail;
-                s.phoneNo = newPhoneNo;
+            pst.setString(1, name);
+            pst.setString(2, course);
+            pst.setInt(3, age);
+            pst.setString(4, email);
+            pst.setString(5, phoneNo);
+            pst.setInt(3, id);
 
-                System.out.println("Student Updated Successfully!");
+            int rows = pst.executeUpdate();
 
-                found = true;
+            if (rows > 0 ) {
+                System.out.println("Student update successfully..!");     
+            }else{
+                System.out.println("Student not found..!");
             }
-        }
 
-        if (!found) {
-            System.out.println("Student Not Found!");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
