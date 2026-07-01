@@ -77,10 +77,13 @@ public class Main {
                     manager.addStudentToDB(student);
 
                     break;
-                
+                //view
+                case 2:
+                    manager.viewStudentsDB();
+                    break;
 
                 case 3:
-
+                        
 
                 default:
                     break;
