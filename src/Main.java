@@ -5,6 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        
         StudentManager manager = new StudentManager();
         
           Student s1 = new Student(
