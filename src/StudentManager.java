@@ -134,17 +134,20 @@ public class StudentManager {
 
             ResultSet rs = st.executeQuery(sql);
 
+            System.out.println("\n-----------------------------");
+            System.out.printf("%-5s %-15s %-10s %-5s %-25s %-15s\n");
+
             while (rs.next()) {
 
-                System.out.println("...............................");
-                System.out.println("ID: " + rs.getInt("id"));
-                System.out.println("Name: " + rs.getString("name"));
-                System.out.println("Course: " + rs.getString("course"));
-                System.out.println("Age: " + rs.getInt("age"));
-                System.out.println("Email: " + rs.getString("email"));
-                System.out.println("Phone: " + rs.getString("phone_number"));
+                System.out.printf("%-5d %-15s %-10s %-5d %-25s %-15s\n",
+                rs.getInt("id"),
+                    rs.getString("name"),
+                    rs.getString("course"),
+                    rs.getInt("age"),
+                    rs.getString("email"),
+                    rs.getString("phone_number"));
             }
-
+            System.out.println("--------------------------------");
         } catch (Exception e) {
             e.printStackTrace();
         }
