@@ -49,7 +49,6 @@ public class Main {
 
                     System.out.print("Enter Phone Number: ");
                     String phone = input.nextLine();
-                    break;
 
                     if (id <= 0) {
                         System.out.println("Invalid ID!");
@@ -134,6 +133,7 @@ public class Main {
 
                     manager.updateStudentInDB(updateId, newName, newCourse, newAge, newEmail, newPhone);
                     break;
+                case 6:
                     // DELETE
                     System.out.print("Enter ID to Delete: ");
                     int deleteId = input.nextInt();
@@ -150,19 +150,8 @@ public class Main {
                     break;
             }
 
-        } while (condition);
-
-        // INSERT
-        manager.addStudentToDB(s1);
-
-        // VIEW
-        manager.viewStudentsDB();
-
-        // UPDATE
-        manager.updateStudentInDB(1, "Kushan Updated", "SE", 25, "malidukushan2001@gmail.com", "04455688");
-
-        // DELETE
-        // manager.deleteStudentFromDB(1);
+        } while (choice != 0);
+        input.close();
     }
 
 }
