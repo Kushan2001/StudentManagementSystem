@@ -135,7 +135,8 @@ public class StudentManager {
             ResultSet rs = st.executeQuery(sql);
 
             System.out.println("\n-----------------------------");
-            System.out.printf("%-5s %-15s %-10s %-5s %-25s %-15s\n");
+            System.out.printf("%-5s %-15s %-10s %-5s %-25s %-15s\n",
+                    "ID", "Name", "Course", "Age", "Email", "Phone");
 
             while (rs.next()) {
 

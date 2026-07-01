@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 public class Main {
 
+    // HELPER METHOD
+    public static boolean isEmpty(String text) {
+        return text == null || text.trim().isEmpty();
+    }
+
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
@@ -31,7 +36,14 @@ public class Main {
             switch (choice) {
                 case 1:
                     System.out.print("Enter ID: ");
-                    int id = input.nextInt();
+                    int id;
+
+                    try {
+                        id = Integer.parseInt(input.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("Invalid number input!");
+                        break;
+                    }
                     input.nextLine();
 
                     System.out.print("Enter Name: ");
@@ -41,7 +53,14 @@ public class Main {
                     String course = input.nextLine();
 
                     System.out.print("Enter Age: ");
-                    int age = input.nextInt();
+                    int age;
+
+                    try {
+                        age = Integer.parseInt(input.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("Invalid Age!");
+                        break;
+                    }
                     input.nextLine();
 
                     System.out.print("Enter Email: ");
@@ -69,6 +88,10 @@ public class Main {
                         System.out.println("Phone must be 10 digits!");
                         break;
                     }
+                    if (isEmpty(name) || isEmpty(course) || isEmpty(email) || isEmpty(phone)) {
+                        System.out.println("Fields cannot be empty!");
+                        break;
+                    }
 
                     Student student = new Student(
                             id, name, course, age, email, phone);
@@ -83,8 +106,14 @@ public class Main {
                 // SEARCH BY ID
                 case 3:
                     System.out.println("Enter student ID");
-                    int searchId = input.nextInt();
+                    int searchId;
 
+                    try {
+                        searchId = Integer.parseInt(input.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("Invalid ID!");
+                        break;
+                    }
                     manager.searchStudentById(searchId);
                     break;
                 // SEARCH BY NAME
@@ -97,7 +126,15 @@ public class Main {
                 // UPDATE
                 case 5:
                     System.out.print("Enter ID to Update: ");
-                    int updateId = input.nextInt();
+                    int updateId;
+
+                    try {
+                        updateId = Integer.parseInt(input.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("Invalid ID!");
+                        break;
+                    }
+                    ;
                     input.nextLine();
 
                     System.out.print("Enter New Name: ");
@@ -136,7 +173,14 @@ public class Main {
                 case 6:
                     // DELETE
                     System.out.print("Enter ID to Delete: ");
-                    int deleteId = input.nextInt();
+                    int deleteId;
+
+                    try {
+                        deleteId = Integer.parseInt(input.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("Invalid ID!");
+                        break;
+                    }
 
                     manager.deleteStudentFromDB(deleteId);
                     break;
