@@ -77,15 +77,76 @@ public class Main {
                     manager.addStudentToDB(student);
 
                     break;
-                //view
+                // view
                 case 2:
                     manager.viewStudentsDB();
                     break;
-
+                // SEARCH BY ID
                 case 3:
-                        
+                    System.out.println("Enter student ID");
+                    int searchId = input.nextInt();
+
+                    manager.searchStudentById(searchId);
+                    break;
+                // SEARCH BY NAME
+                case 4:
+                    System.out.println("Enter student Name: ");
+                    String searchName = input.nextLine();
+
+                    manager.searchStudentByName(searchName);
+                    break;
+                // UPDATE
+                case 5:
+                    System.out.print("Enter ID to Update: ");
+                    int updateId = input.nextInt();
+                    input.nextLine();
+
+                    System.out.print("Enter New Name: ");
+                    String newName = input.nextLine();
+
+                    System.out.print("Enter New Course: ");
+                    String newCourse = input.nextLine();
+
+                    System.out.print("Enter New Age: ");
+                    int newAge = input.nextInt();
+                    input.nextLine();
+
+                    System.out.print("Enter New Email: ");
+                    String newEmail = input.nextLine();
+
+                    System.out.print("Enter New Phone: ");
+                    String newPhone = input.nextLine();
+
+                    if (newAge <= 0) {
+                        System.out.println("Invalid Age!");
+                        break;
+                    }
+
+                    if (!newEmail.contains("@")) {
+                        System.out.println("Invalid Email!");
+                        break;
+                    }
+
+                    if (newPhone.length() != 10) {
+                        System.out.println("Invalid Phone Number!");
+                        break;
+                    }
+
+                    manager.updateStudentInDB(updateId, newName, newCourse, newAge, newEmail, newPhone);
+                    break;
+                    // DELETE
+                    System.out.print("Enter ID to Delete: ");
+                    int deleteId = input.nextInt();
+
+                    manager.deleteStudentFromDB(deleteId);
+                    break;
+                // EXIT
+                case 0:
+                    System.out.println("Exiting system... Goodbye!");
+                    break;
 
                 default:
+                    System.out.println("Invalid choice! Try again.");
                     break;
             }
 
