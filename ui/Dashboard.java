@@ -12,5 +12,12 @@ public class Dashboard  extends JFrame{
 
 
         setLayout(new GridLayout(5,1,10,10));
+
+        //title label
+        JLabel title = new JLabel("STUDENT DASHBOARD",SwingConstants.CENTER);
+        title.setFont(new Font("Arial",Font.BOLD,20));
+        add(title);
+        
+        
     }
 }
