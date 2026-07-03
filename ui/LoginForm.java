@@ -31,7 +31,7 @@ public class LoginForm extends JFrame {
         JButton loginbtn = new JButton("Login");
         add(loginbtn);
 
-        loginbtn.addActionListener((ActionEvent e ->{
+        loginbtn.addActionListener((ActionEvent e) ->{
             
             String user = usernamField.getText();
             String pass = new String(passwordField.getPassword());
@@ -46,7 +46,7 @@ public class LoginForm extends JFrame {
             }else{
                 JOptionPane.showMessageDialog(this, "Invalid....!");
             }
-        }));
+        });
 
         setVisible(true);
 
