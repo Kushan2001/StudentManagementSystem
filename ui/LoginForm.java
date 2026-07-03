@@ -30,5 +30,11 @@ public class LoginForm extends JFrame {
         //button    
         JButton loginbtn = new JButton("Login");
         add(loginbtn);
+
+        loginbtn.addActionListener((ActionEvent e ->{
+            
+            String user = usernamField.getText();
+            String pass = new String(passwordField.getPassword());
+        }));
     }
 }
