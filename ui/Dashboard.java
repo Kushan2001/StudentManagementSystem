@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.AdjustmentEvent;
 
-public class Dashboard {
-    
+public class Dashboard  extends JFrame{
+    public Dashboard(){
+        
+    }
 }
