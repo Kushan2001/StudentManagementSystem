@@ -53,5 +53,9 @@ public class Dashboard  extends JFrame{
             new LoginForm().setVisible(true);
             this.dispose();
         });
+        setVisible(true);
+    }
+    public static void main(String[] args) {
+        new Dashboard();
     }
 }
