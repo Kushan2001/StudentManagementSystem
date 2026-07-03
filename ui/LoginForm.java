@@ -43,8 +43,15 @@ public class LoginForm extends JFrame {
 
                     new Dashboard().setVisible(true);
                     this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(this, "Invalid....!");
             }
         }));
 
+        setVisible(true);
+
+    }
+    public static void main(String[] args) {
+        new LoginForm();
     }
 }
