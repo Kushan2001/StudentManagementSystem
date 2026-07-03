@@ -35,6 +35,16 @@ public class LoginForm extends JFrame {
             
             String user = usernamField.getText();
             String pass = new String(passwordField.getPassword());
+
+            // Simple validation
+
+            if (user.equals("admin") && pass.equals("1234")) {
+                    JOptionPane.showMessageDialog(this, "Login Successful..!");
+
+                    new Dashboard().setVisible(true);
+                    this.dispose();
+            }
         }));
+
     }
 }
