@@ -1,6 +1,7 @@
 package ui;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.AdjustmentEvent;
 
 public class Dashboard  extends JFrame{
@@ -28,5 +29,29 @@ public class Dashboard  extends JFrame{
         add(viewbtn);
         add(searchbtn);
         add(logoutbtn);
+
+        //Actions---------------------
+        //Add students
+        addbtn.addActionListener((ActionEvent e)->{
+            new AddStudentForm().setVisible(true);
+        });
+
+        //view students
+        viewbtn.addActionListener((ActionEvent e)->{
+            new ViewStudentForm().setVisible(true);
+        });
+
+        //Search Student
+
+        searchbtn.addActionListener((ActionEvent e)->{
+            new SearchStudentForm().setVisible(true);
+        });
+
+        // Logout
+         logoutbtn.addActionListener((ActionEvent e) -> {
+            JOptionPane.showMessageDialog(this, "Logged out successfully!");
+            new LoginForm().setVisible(true);
+            this.dispose();
+        });
     }
 }
