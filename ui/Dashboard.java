@@ -18,6 +18,15 @@ public class Dashboard  extends JFrame{
         title.setFont(new Font("Arial",Font.BOLD,20));
         add(title);
         
-        
+        //buttons
+        JButton addbtn = new JButton("Add Students");
+        JButton viewbtn = new JButton("View Student");
+        JButton searchbtn = new JButton("Search Student");
+        JButton logoutbtn = new JButton("Logout");
+
+        add(addbtn);
+        add(viewbtn);
+        add(searchbtn);
+        add(logoutbtn);
     }
 }
