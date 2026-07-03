@@ -27,6 +27,8 @@ public class LoginForm extends JFrame {
         passwordField = new JPasswordField();
         add(passwordField);
 
-        
+        //button    
+        JButton loginbtn = new JButton("Login");
+        add(loginbtn);
     }
 }
