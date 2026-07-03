@@ -14,6 +14,8 @@ public class LoginForm extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        
+        //layout Design
+        setLayout(new GridLayout(3,2));
+
     }
 }
