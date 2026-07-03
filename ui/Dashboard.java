@@ -11,6 +11,6 @@ public class Dashboard  extends JFrame{
         setLocationRelativeTo(null);
 
 
-        
+        setLayout(new GridLayout(5,1,10,10));
     }
 }
