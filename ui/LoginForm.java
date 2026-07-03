@@ -17,5 +17,16 @@ public class LoginForm extends JFrame {
         //layout Design
         setLayout(new GridLayout(3,2));
 
+        //username
+        add(new JLabel("Username:"));
+        usernamField = new JTextField();
+        add(usernamField);
+
+        //password
+        add(new JLabel("Password: "));
+        passwordField = new JPasswordField();
+        add(passwordField);
+
+        
     }
 }
