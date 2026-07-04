@@ -91,6 +91,10 @@ public class AddStudentForm extends JFrame {
                         email,
                         phone
                 );
+
+                manager.addStudentToDB(student);
+
+                
             } catch (Exception e) {
                 // TODO: handle exception
             }
