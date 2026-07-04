@@ -55,6 +55,22 @@ public class AddStudentForm extends JFrame {
         JButton closebtn = new JButton("Close");
         add(closebtn);
 
+        //save button actions
+
+        savebtn.addActionListener((ActionEvent e)->{
+            try {
+                int id = Integer.parseInt(idField.getText());
+                String name = nameField.getText();
+                String course = courseField.getText();
+                int age = Integer.parseInt(ageField.getText());
+                String email = emailField.getText();
+                String phone = phoneField.getText();
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+
+        });
+
 
 
     }
