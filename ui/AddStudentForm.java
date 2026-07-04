@@ -93,8 +93,9 @@ public class AddStudentForm extends JFrame {
                 );
 
                 manager.addStudentToDB(student);
-
+                JOptionPane.showMessageDialog(this, "Student Added Successfully..!");
                 
+
             } catch (Exception e) {
                 // TODO: handle exception
             }
