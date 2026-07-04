@@ -1,6 +1,7 @@
 package ui;
 import javax.swing.*;
 
+import src.Student;
 import src.StudentManager;
 
 import java.awt.*;
@@ -81,8 +82,15 @@ public class AddStudentForm extends JFrame {
                     JOptionPane.showMessageDialog(this, "Phone number must be 10 digits!");
                     return;
                 }
-                
 
+                Student student = new Student(
+                        id,
+                        name,
+                        course,
+                        age,
+                        email,
+                        phone
+                );
             } catch (Exception e) {
                 // TODO: handle exception
             }
