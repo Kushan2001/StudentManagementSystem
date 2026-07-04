@@ -96,14 +96,28 @@ public class AddStudentForm extends JFrame {
                 JOptionPane.showMessageDialog(this, "Student Added Successfully..!");
                 
 
-            } catch (Exception e) {
-                // TODO: handle exception
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Invalid inputs!");
             }
 
         });
 
+        // close button
+        closebtn.addActionListener((ActionEvent e)->{
+            dispose();
+        });
+        setVisible(true);
+  
+    }
 
-
+    //clear form
+     public void clearFields() {
+        idField.setText("");
+        nameField.setText("");
+        courseField.setText("");
+        ageField.setText("");
+        emailField.setText("");
+        phoneField.setText("");
     }
 
 
