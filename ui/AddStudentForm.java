@@ -50,6 +50,11 @@ public class AddStudentForm extends JFrame {
         phoneField = new JTextField();
         add(phoneField);
 
+        JButton savebtn = new JButton("Save Student");
+        add(savebtn);
+        JButton closebtn = new JButton("Close");
+        add(closebtn);
+
 
 
     }
