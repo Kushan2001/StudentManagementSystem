@@ -65,6 +65,24 @@ public class AddStudentForm extends JFrame {
                 int age = Integer.parseInt(ageField.getText());
                 String email = emailField.getText();
                 String phone = phoneField.getText();
+
+                //validation
+                if (name.isEmpty() || course.isEmpty() || email.isEmpty() || phone.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "Field cannot be empty!");
+                    return;
+                }
+
+                if (!email.contains("@")) {
+                    JOptionPane.showMessageDialog(this, "Invalid Email!");
+                    return;
+                }
+
+                if (phone.length() != 10) {
+                    JOptionPane.showMessageDialog(this, "Phone number must be 10 digits!");
+                    return;
+                }
+                
+
             } catch (Exception e) {
                 // TODO: handle exception
             }
